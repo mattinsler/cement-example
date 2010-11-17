@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        function createGetUrl(method, pathParameters, parameters) {
+            var url = method.url;
+            if (method.path) {
+                for (var x in method.path) {
+                    var item = method.path[x];
+                    if (item.isParameter) {
+                        url += '/' + (pathParameters ? pathParameters[item.value] : '');
+                    } else {
+                        url += '/' + item.value;
+                    }
+                }
+            }
+            if (method.parameters) {
+                url += '?';
+                for (var x in method.parameters) {
+                    var name = method.parameters[x];
+                    url += name + '=' + (parameters ? parameters[name] : '');
+                    if (x < method.parameters.length - 1) {
+                        url += '&';
+                    }
+                }
+            }
+            return url;
+        }
+
+        $.getJSON('/introspect', function(data) {
+            window.methods = {};
+            for (var x in data) {
+                var m = data[x];
+                window.methods[x] = m;
+                $('body').append(
+                        $('<div></div>')
+                        .attr('id', x)
+                        .html('[' + m.type.toUpperCase() + '] ' + createGetUrl(m))
+                        .click(function() {
+                            var method = window.methods[$(this).attr('id')];
+                            $.getJSON(createGetUrl(method), function(data) {
+                                console.log(data);
+                            });
+                        })
+                );
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="message"></div>
+    <div id="login">
+        <b>Login</b><br />
+        User: <input id="user" type="text" /><br />
+        Password: <input id="password" type="password" /><br />
+        <a id="submit" href="#">Login</a> <a id="logout" href="#">Logout</a>
+    </div>
+    <div id="new-user">
+        <b>Create User</b><br />
+        Username: <input id="user" type="text" /><br />
+        Password: <input id="password" type="text" /><br />
+        Name: <input id="name" type="text" /><br />
+        Email: <input id="email" type="text" /><br />
+        <a id="submit" href="#">Create</a>
+    </div>
+
+    <script type="text/javascript">
+        $('#login > #submit').click(function() {
+            $.getJSON('/access/login', {
+                user: $('#login > #user').val(),
+                password: $('#login > #password').val()
+            }, function(token) {
+                if (token) {
+                    $.cookie('token', token);
+                    $('#message').html('SUCCESS! Login token: ' + token);
+                }
+            });
+        });
+        $('#login > #logout').click(function() {
+            $.getJSON('/access/logout', function(response) {
+                $('#message').html('Should be success');
+            });
+        });
+        $('#new-user > #submit').click(function() {
+            $.getJSON('/user-management/create', {
+                user: $('#new-user > #user').val(),
+                password: $('#new-user > #password').val(),
+                name: $('#new-user > #name').val(),
+                email: $('#new-user > #email').val()
+            }, function(response) {
+                $('#message').html('Should be success');
+            });
+        });
+    </script>
+</body>
+</html>

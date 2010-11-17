@@ -1,0 +1,47 @@
+data UserEntity {
+    [identity]
+    object_id identity;
+
+    string username;
+    string password;
+
+    string name;
+    string biography;
+    string email_address;
+    blob picture;
+}
+
+data SocialEntity {
+    enum Relationship {
+        Following,
+        Blocking
+    }
+
+    object_id source_user;
+    object_id destination_user;
+    Relationship relationship;
+    date starting;
+}
+
+data SessionEntity {
+    [identity]
+    object_id token;
+    object_id user;
+}
+
+data OAuthConsumerEntity {
+    [identity]
+    string key;
+    string secret;
+    string callback;
+    string author;
+    string description;
+}
+
+data OAuthAccessEntity {
+    [identity]
+    string token;
+    string consumer_key;
+    object_id user;
+    bool authorized;
+}
