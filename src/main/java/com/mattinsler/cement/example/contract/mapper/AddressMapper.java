@@ -11,7 +11,7 @@ import com.mattinsler.cement.mongo.model.RequestEntity;
  * Time: 12:48 AM
  * To change this template use File | Settings | File Templates.
  */
-public class AddressMapper extends ContractMapper<AddressContract, RequestEntity.Address> {
+public class AddressMapper extends ContractMapper<RequestEntity.Address, AddressContract> {
     protected void mapContract(AddressContract contract, RequestEntity.Address value) {
         map(contract.address()).to(value.getAddress());
         map(contract.port()).to(value.getPort());

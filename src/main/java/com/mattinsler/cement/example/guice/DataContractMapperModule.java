@@ -16,7 +16,7 @@ import com.mattinsler.contract.guice.ContractModule;
  */
 public class DataContractMapperModule extends ContractModule {
     @Override
-    protected void configure() {
+    protected void configureContracts() {
         bindMapper(AddressMapper.class);
         bindMapper(ExceptionMapper.class);
         bindMapper(LogMapper.class);

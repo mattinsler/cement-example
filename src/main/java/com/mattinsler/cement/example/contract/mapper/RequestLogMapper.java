@@ -11,7 +11,7 @@ import com.mattinsler.cement.mongo.model.RequestEntity;
  * Time: 12:48 AM
  * To change this template use File | Settings | File Templates.
  */
-public class RequestLogMapper extends ContractMapper<RequestLogContract, RequestEntity> {
+public class RequestLogMapper extends ContractMapper<RequestEntity, RequestLogContract> {
     protected void mapContract(RequestLogContract contract, RequestEntity value) {
         map(contract.request_id()).to(value.getRequestId());
         map(contract.server_hostname()).to(value.getServerHostname());

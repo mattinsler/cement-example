@@ -11,12 +11,12 @@ import com.mattinsler.contract.ContractMapper;
  * Time: 4:56 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ExceptionMapper extends ContractMapper<ExceptionContract, ExceptionEntity> {
+public class ExceptionMapper extends ContractMapper<ExceptionEntity, ExceptionContract> {
     protected void mapContract(ExceptionContract contract, ExceptionEntity value) {
         map(contract.throwables()).to(value.getThrowableList());
     }
 
-    public static class ThrowableMapper extends ContractMapper<ExceptionContract.ThrowableContract, ExceptionEntity.Throwable> {
+    public static class ThrowableMapper extends ContractMapper<ExceptionEntity.Throwable, ExceptionContract.ThrowableContract> {
         protected void mapContract(ExceptionContract.ThrowableContract contract, ExceptionEntity.Throwable value) {
             map(contract.message()).to(value.getMessage());
             map(contract.class_name()).to(value.getFullClassName());
@@ -24,7 +24,7 @@ public class ExceptionMapper extends ContractMapper<ExceptionContract, Exception
         }
     }
 
-    public static class StackElementMapper extends ContractMapper<ExceptionContract.StackElementContract, ExceptionEntity.StackElement> {
+    public static class StackElementMapper extends ContractMapper<ExceptionEntity.StackElement, ExceptionContract.StackElementContract> {
         protected void mapContract(ExceptionContract.StackElementContract contract, ExceptionEntity.StackElement value) {
             map(contract.filename()).to(value.getFilename());
             map(contract.class_name()).to(value.getFilename());

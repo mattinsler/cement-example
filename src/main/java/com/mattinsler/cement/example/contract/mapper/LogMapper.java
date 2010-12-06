@@ -11,7 +11,7 @@ import com.mattinsler.contract.ContractMapper;
  * Time: 4:52 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LogMapper extends ContractMapper<LogContract, LogEntity> {
+public class LogMapper extends ContractMapper<LogEntity, LogContract> {
     protected void mapContract(LogContract contract, LogEntity value) {
         map(contract.request_id()).to(value.getRequestId());
         map(contract.server_hostname()).to(value.getServerHostname());
