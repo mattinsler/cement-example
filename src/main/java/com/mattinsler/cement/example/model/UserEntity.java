@@ -2,55 +2,117 @@ package com.mattinsler.cement.example.model;
 
 
 // Generated file!!!  DO NOT EDIT THIS!!!
-public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsData {
+
+/**
+ *
+ */
+public abstract class UserEntity implements com.mattinsler.guiceymongo.data.IsData {
     public static final String IdentityKey = "_id";
     public static final String UsernameKey = "username";
     public static final String PasswordKey = "password";
     public static final String NameKey = "name";
     public static final String BiographyKey = "biography";
     public static final String EmailAddressKey = "email_address";
+
+    /**
+     *
+     */
     public static final String PictureKey = "picture";
-    public static com.lowereast.guiceymongo.data.DataWrapper<UserEntity> DataWrapper =
-        new com.lowereast.guiceymongo.data.DataWrapper<UserEntity>() {
+    public static com.mattinsler.guiceymongo.data.DataWrapper<UserEntity> DataWrapper =
+        new com.mattinsler.guiceymongo.data.DataWrapper<UserEntity>() {
             public UserEntity.Wrapper wrap(com.mongodb.DBObject backing) {
                 return UserEntity.wrap(backing);
             }
         };
 
+    /**
+     *
+     */
     public abstract boolean hasIdentity();
 
+    /**
+     *
+     */
     public abstract org.bson.types.ObjectId getIdentity();
 
+    /**
+     *
+     */
     public abstract boolean hasUsername();
 
+    /**
+     *
+     */
     public abstract String getUsername();
 
+    /**
+     *
+     */
     public abstract boolean hasPassword();
 
+    /**
+     *
+     */
     public abstract String getPassword();
 
+    /**
+     *
+     */
     public abstract boolean hasName();
 
+    /**
+     *
+     */
     public abstract String getName();
 
+    /**
+     *
+     */
     public abstract boolean hasBiography();
 
+    /**
+     *
+     */
     public abstract String getBiography();
 
+    /**
+     *
+     */
     public abstract boolean hasEmailAddress();
 
+    /**
+     *
+     */
     public abstract String getEmailAddress();
 
+    /**
+     *
+     */
     public abstract boolean hasPicture();
 
+    /**
+     *
+     */
     public abstract boolean hasPictureBucket();
 
+    /**
+     *
+     */
     public abstract boolean hasPictureIdentity();
 
+    /**
+     *
+     */
     public abstract java.io.InputStream getPictureInputStream();
 
+    /**
+     *
+     */
     public abstract String getPictureBucket();
 
+    /**
+     *
+     */
     public abstract org.bson.types.ObjectId getPictureIdentity();
 
     public static UserEntity.Wrapper wrap(com.mongodb.DBObject backing) {
@@ -62,7 +124,7 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
     }
 
     public static UserEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsWrapper<?> wrapped) {
+        com.mattinsler.guiceymongo.data.IsWrapper<?> wrapped) {
         if (wrapped == null) {
             return null;
         }
@@ -71,13 +133,13 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
     }
 
     public static UserEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsData data) {
+        com.mattinsler.guiceymongo.data.IsData data) {
         if ((data == null) ||
-                !(data instanceof com.lowereast.guiceymongo.data.IsWrapper<?>)) {
+                !(data instanceof com.mattinsler.guiceymongo.data.IsWrapper<?>)) {
             return null;
         }
 
-        return new UserEntity.Wrapper(((com.lowereast.guiceymongo.data.IsWrapper<?>) data).getDBObject());
+        return new UserEntity.Wrapper(((com.mattinsler.guiceymongo.data.IsWrapper<?>) data).getDBObject());
     }
 
     public static Builder newBuilder() {
@@ -180,74 +242,117 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
         return true;
     }
 
-    public static class Wrapper extends UserEntity implements com.lowereast.guiceymongo.data.IsWrapper<UserEntity> {
+    public static class Wrapper extends UserEntity implements com.mattinsler.guiceymongo.data.IsWrapper<UserEntity> {
         private com.mongodb.DBObject _backing;
+
+        /**
+         *
+         */
         protected com.mongodb.gridfs.GridFSDBFile _picture = null;
 
         private Wrapper(com.mongodb.DBObject backing) {
             _backing = backing;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasIdentity() {
             return _backing.containsField(IdentityKey);
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getIdentity() {
             return (org.bson.types.ObjectId) _backing.get(IdentityKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUsername() {
             return _backing.containsField(UsernameKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getUsername() {
             return (String) _backing.get(UsernameKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPassword() {
             return _backing.containsField(PasswordKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getPassword() {
             return (String) _backing.get(PasswordKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasName() {
             return _backing.containsField(NameKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getName() {
             return (String) _backing.get(NameKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasBiography() {
             return _backing.containsField(BiographyKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getBiography() {
             return (String) _backing.get(BiographyKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasEmailAddress() {
             return _backing.containsField(EmailAddressKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getEmailAddress() {
             return (String) _backing.get(EmailAddressKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPicture() {
             Object o = _backing.containsField(PictureKey);
@@ -260,6 +365,9 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
             ((com.mongodb.DBObject) o).containsField("identity");
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPictureBucket() {
             return _backing.containsField(PictureKey) &&
@@ -267,6 +375,9 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
                 "bucket");
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPictureIdentity() {
             return _backing.containsField(PictureKey) &&
@@ -274,6 +385,9 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
                 "identity");
         }
 
+        /**
+         *
+         */
         @Override
         public java.io.InputStream getPictureInputStream() {
             if (_picture == null) {
@@ -289,7 +403,7 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
                         return null;
                     }
 
-                    com.lowereast.guiceymongo.GuiceyBucket guiceyBucket = com.lowereast.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(bucket);
+                    com.mattinsler.guiceymongo.GuiceyBucket guiceyBucket = com.mattinsler.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(bucket);
 
                     if (guiceyBucket == null) {
                         throw new RuntimeException("No bucket with key '" +
@@ -303,6 +417,9 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
             return (_picture == null) ? null : _picture.getInputStream();
         }
 
+        /**
+         *
+         */
         @Override
         public String getPictureBucket() {
             return (!_backing.containsField(PictureKey)) ? null
@@ -310,6 +427,9 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
                 "bucket");
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getPictureIdentity() {
             return (!_backing.containsField(PictureKey)) ? null
@@ -322,12 +442,35 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
         }
     }
 
-    public static class Builder extends UserEntity implements com.lowereast.guiceymongo.data.IsBuilder<UserEntity> {
+    public static class Builder extends UserEntity implements com.mattinsler.guiceymongo.data.IsBuilder<UserEntity> {
+        /**
+         *
+         */
         protected org.bson.types.ObjectId _identity = null;
+
+        /**
+         *
+         */
         protected String _username = null;
+
+        /**
+         *
+         */
         protected String _password = null;
+
+        /**
+         *
+         */
         protected String _name = null;
+
+        /**
+         *
+         */
         protected String _biography = null;
+
+        /**
+         *
+         */
         protected String _emailAddress = null;
         protected java.io.ByteArrayOutputStream _picture = null;
         protected String _pictureBucket = null;
@@ -336,158 +479,242 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
         private Builder() {
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasIdentity() {
             return _identity != null;
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getIdentity() {
             return _identity;
         }
 
+        /**
+         *
+         */
         public Builder setIdentity(org.bson.types.ObjectId value) {
             _identity = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearIdentity() {
             _identity = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUsername() {
             return _username != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getUsername() {
             return _username;
         }
 
+        /**
+         *
+         */
         public Builder setUsername(String value) {
             _username = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearUsername() {
             _username = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPassword() {
             return _password != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getPassword() {
             return _password;
         }
 
+        /**
+         *
+         */
         public Builder setPassword(String value) {
             _password = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearPassword() {
             _password = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasName() {
             return _name != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getName() {
             return _name;
         }
 
+        /**
+         *
+         */
         public Builder setName(String value) {
             _name = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearName() {
             _name = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasBiography() {
             return _biography != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getBiography() {
             return _biography;
         }
 
+        /**
+         *
+         */
         public Builder setBiography(String value) {
             _biography = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearBiography() {
             _biography = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasEmailAddress() {
             return _emailAddress != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getEmailAddress() {
             return _emailAddress;
         }
 
+        /**
+         *
+         */
         public Builder setEmailAddress(String value) {
             _emailAddress = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearEmailAddress() {
             _emailAddress = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPicture() {
             return (_picture != null) ||
             ((_pictureBucket != null) && (_pictureIdentity != null));
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPictureBucket() {
             return _pictureBucket != null;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasPictureIdentity() {
             return _pictureIdentity != null;
         }
 
+        /**
+         *
+         */
         private boolean loadPicture() {
             if ((_picture == null) && (_pictureBucket != null) &&
                     (_pictureIdentity != null)) {
-                com.lowereast.guiceymongo.GuiceyBucket guiceyBucket = com.lowereast.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(_pictureBucket);
+                com.mattinsler.guiceymongo.GuiceyBucket guiceyBucket = com.mattinsler.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(_pictureBucket);
 
                 if (guiceyBucket == null) {
                     throw new RuntimeException("No bucket with key '" +
@@ -521,22 +748,34 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
             return _picture != null;
         }
 
+        /**
+         *
+         */
         @Override
         public java.io.InputStream getPictureInputStream() {
             return loadPicture()
             ? new java.io.ByteArrayInputStream(_picture.toByteArray()) : null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getPictureBucket() {
             return _pictureBucket;
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getPictureIdentity() {
             return _pictureIdentity;
         }
 
+        /**
+         *
+         */
         public java.io.OutputStream getPictureOutputStream() {
             if (!loadPicture()) {
                 _pictureIdentity = null;
@@ -546,12 +785,18 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
             return _picture;
         }
 
+        /**
+         *
+         */
         public Builder setPictureBucket(String bucketKey) {
             _pictureBucket = bucketKey;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearPicture() {
             _picture = null;
             _pictureBucket = null;
@@ -594,7 +839,7 @@ public abstract class UserEntity implements com.lowereast.guiceymongo.data.IsDat
                         "Trying to save Picture but no bucket was specified");
                 }
 
-                com.lowereast.guiceymongo.GuiceyBucket guiceyPictureBucket = com.lowereast.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(_pictureBucket);
+                com.mattinsler.guiceymongo.GuiceyBucket guiceyPictureBucket = com.mattinsler.guiceymongo.guice.GuiceyMongoUtil.getGuiceyBucket(_pictureBucket);
 
                 if (guiceyPictureBucket == null) {
                     throw new RuntimeException("No bucket with key '" +

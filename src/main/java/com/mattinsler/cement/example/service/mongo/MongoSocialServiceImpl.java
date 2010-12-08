@@ -1,13 +1,14 @@
 package com.mattinsler.cement.example.service.mongo;
 
 import com.google.inject.Inject;
-import com.lowereast.guiceymongo.GuiceyCollection;
-import com.lowereast.guiceymongo.guice.annotation.GuiceyMongoCollection;
+import com.mattinsler.guiceymongo.GuiceyCollection;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mattinsler.cement.example.guice.Collections;
 import com.mattinsler.cement.example.model.SocialEntity;
 import com.mattinsler.cement.example.model.UserEntity;
 import com.mattinsler.cement.example.service.SocialService;
 import com.mattinsler.cement.util.CollectionUtil;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mongodb.BasicDBObject;
 import com.mongodb.QueryBuilder;
 import org.bson.types.ObjectId;
@@ -26,7 +27,7 @@ public class MongoSocialServiceImpl implements SocialService {
     private final GuiceyCollection<SocialEntity> _socialCollection;
 
     @Inject
-    MongoSocialServiceImpl(@GuiceyMongoCollection(Collections.Social) GuiceyCollection<SocialEntity> socialCollection) {
+    MongoSocialServiceImpl(@MongoCollection(Collections.Social) GuiceyCollection<SocialEntity> socialCollection) {
         _socialCollection = socialCollection;
     }
 

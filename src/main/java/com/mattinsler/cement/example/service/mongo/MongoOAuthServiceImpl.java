@@ -1,12 +1,12 @@
 package com.mattinsler.cement.example.service.mongo;
 
 import com.google.inject.Inject;
-import com.lowereast.guiceymongo.GuiceyCollection;
-import com.lowereast.guiceymongo.guice.annotation.GuiceyMongoCollection;
+import com.mattinsler.guiceymongo.GuiceyCollection;
 import com.mattinsler.cement.example.guice.Collections;
 import com.mattinsler.cement.example.model.OAuthAccessEntity;
 import com.mattinsler.cement.example.model.OAuthConsumerEntity;
 import com.mattinsler.cement.example.service.OAuthService;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mongodb.BasicDBObject;
 import net.oauth.*;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -26,8 +26,8 @@ public class MongoOAuthServiceImpl implements OAuthService {
     private final GuiceyCollection<OAuthConsumerEntity> _consumerCollection;
 
     @Inject
-    MongoOAuthServiceImpl(@GuiceyMongoCollection(Collections.OAuthAccess) GuiceyCollection<OAuthAccessEntity> accessCollection,
-                          @GuiceyMongoCollection(Collections.OAuthConsumer) GuiceyCollection<OAuthConsumerEntity> consumerCollection) {
+    MongoOAuthServiceImpl(@MongoCollection(Collections.OAuthAccess) GuiceyCollection<OAuthAccessEntity> accessCollection,
+                          @MongoCollection(Collections.OAuthConsumer) GuiceyCollection<OAuthConsumerEntity> consumerCollection) {
         _accessCollection = accessCollection;
         _consumerCollection = consumerCollection;
     }

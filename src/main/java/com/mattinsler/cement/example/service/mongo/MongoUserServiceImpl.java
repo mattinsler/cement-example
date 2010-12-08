@@ -1,13 +1,13 @@
 package com.mattinsler.cement.example.service.mongo;
 
 import com.google.inject.Inject;
-import com.lowereast.guiceymongo.GuiceyCollection;
-import com.lowereast.guiceymongo.guice.annotation.GuiceyMongoCollection;
 import com.mattinsler.cement.example.guice.Collections;
 import com.mattinsler.cement.example.model.SessionEntity;
 import com.mattinsler.cement.example.model.UserEntity;
 import com.mattinsler.cement.example.service.UserService;
 import com.mattinsler.cement.util.StringUtil;
+import com.mattinsler.guiceymongo.GuiceyCollection;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mongodb.BasicDBObject;
 import org.bson.types.ObjectId;
 
@@ -23,8 +23,8 @@ public class MongoUserServiceImpl implements UserService {
     private final GuiceyCollection<SessionEntity> _sessionCollection;
 
     @Inject
-    MongoUserServiceImpl(@GuiceyMongoCollection(Collections.User) GuiceyCollection<UserEntity> userCollection,
-                         @GuiceyMongoCollection(Collections.Session) GuiceyCollection<SessionEntity> sessionCollection) {
+    MongoUserServiceImpl(@MongoCollection(Collections.User) GuiceyCollection<UserEntity> userCollection,
+                         @MongoCollection(Collections.Session) GuiceyCollection<SessionEntity> sessionCollection) {
         _userCollection = userCollection;
         _sessionCollection = sessionCollection;
     }

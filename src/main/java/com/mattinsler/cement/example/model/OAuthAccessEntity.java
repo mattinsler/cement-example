@@ -2,32 +2,60 @@ package com.mattinsler.cement.example.model;
 
 
 // Generated file!!!  DO NOT EDIT THIS!!!
-public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.data.IsData {
+
+/**
+ *
+ */
+public abstract class OAuthAccessEntity implements com.mattinsler.guiceymongo.data.IsData {
     public static final String TokenKey = "_id";
     public static final String ConsumerKeyKey = "consumer_key";
     public static final String UserKey = "user";
     public static final String AuthorizedKey = "authorized";
-    public static com.lowereast.guiceymongo.data.DataWrapper<OAuthAccessEntity> DataWrapper =
-        new com.lowereast.guiceymongo.data.DataWrapper<OAuthAccessEntity>() {
+    public static com.mattinsler.guiceymongo.data.DataWrapper<OAuthAccessEntity> DataWrapper =
+        new com.mattinsler.guiceymongo.data.DataWrapper<OAuthAccessEntity>() {
             public OAuthAccessEntity.Wrapper wrap(com.mongodb.DBObject backing) {
                 return OAuthAccessEntity.wrap(backing);
             }
         };
 
+    /**
+     *
+     */
     public abstract boolean hasToken();
 
+    /**
+     *
+     */
     public abstract String getToken();
 
+    /**
+     *
+     */
     public abstract boolean hasConsumerKey();
 
+    /**
+     *
+     */
     public abstract String getConsumerKey();
 
+    /**
+     *
+     */
     public abstract boolean hasUser();
 
+    /**
+     *
+     */
     public abstract org.bson.types.ObjectId getUser();
 
+    /**
+     *
+     */
     public abstract boolean hasAuthorized();
 
+    /**
+     *
+     */
     public abstract boolean getAuthorized();
 
     public static OAuthAccessEntity.Wrapper wrap(com.mongodb.DBObject backing) {
@@ -39,7 +67,7 @@ public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.dat
     }
 
     public static OAuthAccessEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsWrapper<?> wrapped) {
+        com.mattinsler.guiceymongo.data.IsWrapper<?> wrapped) {
         if (wrapped == null) {
             return null;
         }
@@ -48,13 +76,13 @@ public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.dat
     }
 
     public static OAuthAccessEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsData data) {
+        com.mattinsler.guiceymongo.data.IsData data) {
         if ((data == null) ||
-                !(data instanceof com.lowereast.guiceymongo.data.IsWrapper<?>)) {
+                !(data instanceof com.mattinsler.guiceymongo.data.IsWrapper<?>)) {
             return null;
         }
 
-        return new OAuthAccessEntity.Wrapper(((com.lowereast.guiceymongo.data.IsWrapper<?>) data).getDBObject());
+        return new OAuthAccessEntity.Wrapper(((com.mattinsler.guiceymongo.data.IsWrapper<?>) data).getDBObject());
     }
 
     public static Builder newBuilder() {
@@ -116,18 +144,24 @@ public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.dat
         return true;
     }
 
-    public static class Wrapper extends OAuthAccessEntity implements com.lowereast.guiceymongo.data.IsWrapper<OAuthAccessEntity> {
+    public static class Wrapper extends OAuthAccessEntity implements com.mattinsler.guiceymongo.data.IsWrapper<OAuthAccessEntity> {
         private com.mongodb.DBObject _backing;
 
         private Wrapper(com.mongodb.DBObject backing) {
             _backing = backing;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasToken() {
             return _backing.containsField(TokenKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getToken() {
             Object value = _backing.get(TokenKey);
@@ -135,31 +169,49 @@ public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.dat
             return (value == null) ? null : value.toString();
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasConsumerKey() {
             return _backing.containsField(ConsumerKeyKey);
         }
 
+        /**
+         *
+         */
         @Override
         public String getConsumerKey() {
             return (String) _backing.get(ConsumerKeyKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUser() {
             return _backing.containsField(UserKey);
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getUser() {
             return (org.bson.types.ObjectId) _backing.get(UserKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasAuthorized() {
             return _backing.containsField(AuthorizedKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean getAuthorized() {
             return (Boolean) _backing.get(AuthorizedKey);
@@ -170,97 +222,160 @@ public abstract class OAuthAccessEntity implements com.lowereast.guiceymongo.dat
         }
     }
 
-    public static class Builder extends OAuthAccessEntity implements com.lowereast.guiceymongo.data.IsBuilder<OAuthAccessEntity> {
+    public static class Builder extends OAuthAccessEntity implements com.mattinsler.guiceymongo.data.IsBuilder<OAuthAccessEntity> {
+        /**
+         *
+         */
         protected String _token = null;
+
+        /**
+         *
+         */
         protected String _consumerKey = null;
+
+        /**
+         *
+         */
         protected org.bson.types.ObjectId _user = null;
+
+        /**
+         *
+         */
         protected Boolean _authorized = null;
 
         private Builder() {
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasToken() {
             return _token != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getToken() {
             return _token;
         }
 
+        /**
+         *
+         */
         public Builder setToken(String value) {
             _token = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearToken() {
             _token = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasConsumerKey() {
             return _consumerKey != null;
         }
 
+        /**
+         *
+         */
         @Override
         public String getConsumerKey() {
             return _consumerKey;
         }
 
+        /**
+         *
+         */
         public Builder setConsumerKey(String value) {
             _consumerKey = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearConsumerKey() {
             _consumerKey = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUser() {
             return _user != null;
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getUser() {
             return _user;
         }
 
+        /**
+         *
+         */
         public Builder setUser(org.bson.types.ObjectId value) {
             _user = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearUser() {
             _user = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasAuthorized() {
             return _authorized != null;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean getAuthorized() {
             return _authorized;
         }
 
+        /**
+         *
+         */
         public Builder setAuthorized(boolean value) {
             _authorized = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearAuthorized() {
             _authorized = null;
 

@@ -2,22 +2,38 @@ package com.mattinsler.cement.example.model;
 
 
 // Generated file!!!  DO NOT EDIT THIS!!!
-public abstract class SessionEntity implements com.lowereast.guiceymongo.data.IsData {
+
+/**
+ *
+ */
+public abstract class SessionEntity implements com.mattinsler.guiceymongo.data.IsData {
     public static final String TokenKey = "_id";
     public static final String UserKey = "user";
-    public static com.lowereast.guiceymongo.data.DataWrapper<SessionEntity> DataWrapper =
-        new com.lowereast.guiceymongo.data.DataWrapper<SessionEntity>() {
+    public static com.mattinsler.guiceymongo.data.DataWrapper<SessionEntity> DataWrapper =
+        new com.mattinsler.guiceymongo.data.DataWrapper<SessionEntity>() {
             public SessionEntity.Wrapper wrap(com.mongodb.DBObject backing) {
                 return SessionEntity.wrap(backing);
             }
         };
 
+    /**
+     *
+     */
     public abstract boolean hasToken();
 
+    /**
+     *
+     */
     public abstract org.bson.types.ObjectId getToken();
 
+    /**
+     *
+     */
     public abstract boolean hasUser();
 
+    /**
+     *
+     */
     public abstract org.bson.types.ObjectId getUser();
 
     public static SessionEntity.Wrapper wrap(com.mongodb.DBObject backing) {
@@ -29,7 +45,7 @@ public abstract class SessionEntity implements com.lowereast.guiceymongo.data.Is
     }
 
     public static SessionEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsWrapper<?> wrapped) {
+        com.mattinsler.guiceymongo.data.IsWrapper<?> wrapped) {
         if (wrapped == null) {
             return null;
         }
@@ -38,13 +54,13 @@ public abstract class SessionEntity implements com.lowereast.guiceymongo.data.Is
     }
 
     public static SessionEntity.Wrapper convertFrom(
-        com.lowereast.guiceymongo.data.IsData data) {
+        com.mattinsler.guiceymongo.data.IsData data) {
         if ((data == null) ||
-                !(data instanceof com.lowereast.guiceymongo.data.IsWrapper<?>)) {
+                !(data instanceof com.mattinsler.guiceymongo.data.IsWrapper<?>)) {
             return null;
         }
 
-        return new SessionEntity.Wrapper(((com.lowereast.guiceymongo.data.IsWrapper<?>) data).getDBObject());
+        return new SessionEntity.Wrapper(((com.mattinsler.guiceymongo.data.IsWrapper<?>) data).getDBObject());
     }
 
     public static Builder newBuilder() {
@@ -86,28 +102,40 @@ public abstract class SessionEntity implements com.lowereast.guiceymongo.data.Is
         return true;
     }
 
-    public static class Wrapper extends SessionEntity implements com.lowereast.guiceymongo.data.IsWrapper<SessionEntity> {
+    public static class Wrapper extends SessionEntity implements com.mattinsler.guiceymongo.data.IsWrapper<SessionEntity> {
         private com.mongodb.DBObject _backing;
 
         private Wrapper(com.mongodb.DBObject backing) {
             _backing = backing;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasToken() {
             return _backing.containsField(TokenKey);
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getToken() {
             return (org.bson.types.ObjectId) _backing.get(TokenKey);
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUser() {
             return _backing.containsField(UserKey);
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getUser() {
             return (org.bson.types.ObjectId) _backing.get(UserKey);
@@ -118,51 +146,82 @@ public abstract class SessionEntity implements com.lowereast.guiceymongo.data.Is
         }
     }
 
-    public static class Builder extends SessionEntity implements com.lowereast.guiceymongo.data.IsBuilder<SessionEntity> {
+    public static class Builder extends SessionEntity implements com.mattinsler.guiceymongo.data.IsBuilder<SessionEntity> {
+        /**
+         *
+         */
         protected org.bson.types.ObjectId _token = null;
+
+        /**
+         *
+         */
         protected org.bson.types.ObjectId _user = null;
 
         private Builder() {
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasToken() {
             return _token != null;
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getToken() {
             return _token;
         }
 
+        /**
+         *
+         */
         public Builder setToken(org.bson.types.ObjectId value) {
             _token = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearToken() {
             _token = null;
 
             return this;
         }
 
+        /**
+         *
+         */
         @Override
         public boolean hasUser() {
             return _user != null;
         }
 
+        /**
+         *
+         */
         @Override
         public org.bson.types.ObjectId getUser() {
             return _user;
         }
 
+        /**
+         *
+         */
         public Builder setUser(org.bson.types.ObjectId value) {
             _user = value;
 
             return this;
         }
 
+        /**
+         *
+         */
         public Builder clearUser() {
             _user = null;
 

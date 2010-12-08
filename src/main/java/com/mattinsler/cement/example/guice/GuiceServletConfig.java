@@ -3,7 +3,7 @@ package com.mattinsler.cement.example.guice;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
-import com.lowereast.guiceymongo.guice.GuiceyMongo;
+import com.mattinsler.guiceymongo.guice.GuiceyMongo;
 
 /**
  * Created by IntelliJ IDEA.

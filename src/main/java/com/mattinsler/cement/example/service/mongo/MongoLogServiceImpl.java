@@ -1,13 +1,13 @@
 package com.mattinsler.cement.example.service.mongo;
 
 import com.google.inject.Inject;
-import com.lowereast.guiceymongo.GuiceyCollection;
-import com.lowereast.guiceymongo.Order;
-import com.lowereast.guiceymongo.guice.annotation.GuiceyMongoCollection;
 import com.mattinsler.cement.example.service.LogService;
 import com.mattinsler.cement.mongo.guice.CementMongoCollection;
 import com.mattinsler.cement.mongo.model.LogEntity;
 import com.mattinsler.cement.util.CollectionUtil;
+import com.mattinsler.guiceymongo.GuiceyCollection;
+import com.mattinsler.guiceymongo.Order;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mongodb.BasicDBObject;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class MongoLogServiceImpl implements LogService {
     private GuiceyCollection<LogEntity> _logCollection;
 
     @Inject
-    MongoLogServiceImpl(@GuiceyMongoCollection(CementMongoCollection.Log) GuiceyCollection<LogEntity> logCollection) {
+    MongoLogServiceImpl(@MongoCollection(CementMongoCollection.Log) GuiceyCollection<LogEntity> logCollection) {
         _logCollection = logCollection;
     }
 

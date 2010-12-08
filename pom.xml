@@ -33,6 +33,10 @@
             <layout>default</layout>
             <url>http://oauth.googlecode.com/svn/code/maven</url>
         </repository>
+        <repository>
+            <id>mattinsler-snapshots</id>
+            <url>http://mattinsler.github.com/repository/snapshots</url>
+        </repository>
     </repositories>
 
     <build>
@@ -83,6 +87,11 @@
             <version>1.0</version>
         </dependency>
         <dependency>
+            <groupId>com.mattinsler</groupId>
+            <artifactId>guiceytools</artifactId>
+            <version>0.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>net.oauth.core</groupId>
             <artifactId>oauth-provider</artifactId>
             <version>20100527</version>
@@ -101,7 +110,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -114,6 +123,12 @@
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
             <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mattinsler</groupId>
+            <artifactId>guiceymongo-generator</artifactId>
+            <version>0.2-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

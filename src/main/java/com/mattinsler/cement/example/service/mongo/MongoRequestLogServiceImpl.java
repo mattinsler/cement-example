@@ -1,9 +1,9 @@
 package com.mattinsler.cement.example.service.mongo;
 
 import com.google.inject.Inject;
-import com.lowereast.guiceymongo.GuiceyCollection;
-import com.lowereast.guiceymongo.Order;
-import com.lowereast.guiceymongo.guice.annotation.GuiceyMongoCollection;
+import com.mattinsler.guiceymongo.GuiceyCollection;
+import com.mattinsler.guiceymongo.Order;
+import com.mattinsler.guiceymongo.guice.annotation.MongoCollection;
 import com.mattinsler.cement.example.service.RequestLogService;
 import com.mattinsler.cement.mongo.guice.CementMongoCollection;
 import com.mattinsler.cement.mongo.model.RequestEntity;
@@ -26,7 +26,7 @@ public class MongoRequestLogServiceImpl implements RequestLogService {
     private final GuiceyCollection<RequestEntity> _requestCollection;
 
     @Inject
-    MongoRequestLogServiceImpl(@GuiceyMongoCollection(CementMongoCollection.Request) GuiceyCollection<RequestEntity> requestCollection) {
+    MongoRequestLogServiceImpl(@MongoCollection(CementMongoCollection.Request) GuiceyCollection<RequestEntity> requestCollection) {
         _requestCollection = requestCollection;
     }
 
